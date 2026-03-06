@@ -150,57 +150,8 @@
     }
     draw();
 })();
-(function () {
-    // Create the HUD element
-    const hud = document.createElement('div');
-    hud.id = 'fps-hud';
-    hud.innerHTML = `
-    <span class="fps-label">FPS</span>
-    <span class="fps-value" id="fps-value">--</span>
-    <div class="fps-bar-wrap"><div class="fps-bar" id="fps-bar"></div></div>
-  `;
-    document.body.appendChild(hud);
 
-    let frames = 0;
-    let lastTime = performance.now();
 
-    function countFPS() {
-        frames++;
-        const now = performance.now();
-        const delta = now - lastTime;
-
-        if (delta >= 500) { // update every 500 ms
-            const fps = Math.round((frames / delta) * 1000);
-            frames = 0;
-            lastTime = now;
-
-            const fpsEl = document.getElementById('fps-value');
-            const barEl = document.getElementById('fps-bar');
-
-            if (fpsEl) {
-                fpsEl.textContent = fps;
-                // Color-code: green ≥55, yellow ≥30, red <30
-                fpsEl.className = 'fps-value ' + (fps >= 55 ? 'fps-good' : fps >= 30 ? 'fps-ok' : 'fps-bad');
-            }
-            if (barEl) {
-                const pct = Math.min(fps / 60, 1) * 100;
-                barEl.style.width = pct + '%';
-                barEl.style.background = fps >= 55
-                    ? 'linear-gradient(90deg, #2de8c0, #4f8ef7)'
-                    : fps >= 30
-                        ? 'linear-gradient(90deg, #febc2e, #f78c6c)'
-                        : 'linear-gradient(90deg, #ff5f57, #f78c6c)';
-            }
-
-            // Also keep the hero stat in sync
-            const heroFps = document.querySelector('.stat-num[data-count="60"]');
-            if (heroFps) heroFps.textContent = fps;
-        }
-
-        requestAnimationFrame(countFPS);
-    }
-    requestAnimationFrame(countFPS);
-})();
 
 
 /* ── Particle / Neural Network Background ──────────────────── */
