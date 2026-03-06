@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Face Recognition AI Project Portfolio — Real-time face detection and identification using Python, OpenCV, and deep learning." />
+  <title>Face Recognition | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Animated background canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="10" r="5" fill="#4285f4" />
+            <path d="M4 24 Q14 16 24 24" fill="#34a853" opacity="0.85" />
+            <rect x="3" y="8" width="4" height="4" rx="1" fill="#fbbc04" opacity="0.5" />
+            <rect x="21" y="8" width="4" height="4" rx="1" fill="#ea4335" opacity="0.5" />
+          </svg>
+        </span>
+        Face Recognition
+      </span>
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#tech">Tech Stack</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+
+    <h1 class="hero-title hero-reveal">
+      Face <span class="accent-word">Recognition</span>
+    </h1>
+    <p class="hero-subtitle hero-reveal">
+      A real-time face detection &amp; identification system powered by deep learning encodings.
+      Recognizes known faces from a live webcam stream and displays names &amp; ages instantly.
+    </p>
+    <div class="hero-cta hero-reveal">
+      <a href="#how-it-works" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10" />
+          <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+        </svg>
+        See How It Works
+      </a>
+      <a href="#code" class="btn btn-ghost">View Code</a>
+    </div>
+
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section-light">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">What It Can Do</h2>
+    <p class="section-sub">Built with cutting-edge libraries to deliver real-time, accurate face identification.</p>
+    <div class="features-grid">
+
+      <div class="feature-card" style="--card-delay: 0s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+        <h3>Real-Time Detection</h3>
+        <p>Continuously scans each webcam frame to detect and locate all visible faces in milliseconds.</p>
+      </div>
+
+      <div class="feature-card" style="--card-delay: 0.1s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </div>
+        <h3>Identity Recognition</h3>
+        <p>Matches detected faces against a library of known people using 128-dimensional deep learning encodings.</p>
+      </div>
+
+      <div class="feature-card" style="--card-delay: 0.2s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+        </div>
+        <h3>Age Display</h3>
+        <p>Displays the stored age alongside the name for every recognized individual in the frame.</p>
+      </div>
+
+      <div class="feature-card" style="--card-delay: 0.3s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h3>Unknown Handling</h3>
+        <p>Gracefully labels unrecognized faces as "Unknown" — no false identification, no crashes.</p>
+      </div>
+
+      <div class="feature-card" style="--card-delay: 0.4s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+        </div>
+        <h3>Live Bounding Boxes</h3>
+        <p>Draws precise bounding rectangles around each detected face with overlaid name and age text.</p>
+      </div>
+
+      <div class="feature-card" style="--card-delay: 0.5s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+            <line x1="4" y1="22" x2="4" y2="15" />
+          </svg>
+        </div>
+        <h3>Easy Extensibility</h3>
+        <p>Add new people by simply dropping their image into the folder and adding their info to the dictionary.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works">
+    <div class="section-label">Pipeline</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">A clean 9-step pipeline from loading known faces to real-time identification.</p>
+    <div class="steps-container">
+      <div class="steps-line"></div>
+
+      <div class="step">
+        <div class="step-badge">01</div>
+        <div class="step-card">
+          <h3>Load Known Faces</h3>
+          <p>Images from the <code>images/</code> folder are loaded. Each filename becomes a person's name.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">02</div>
+        <div class="step-card">
+          <h3>Generate Encodings</h3>
+          <p>The <code>face_recognition</code> library converts each face into a unique 128-number vector.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">03</div>
+        <div class="step-card">
+          <h3>Open Webcam</h3>
+          <p>OpenCV captures a live video stream from the default camera device.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">04</div>
+        <div class="step-card">
+          <h3>Capture &amp; Convert Frames</h3>
+          <p>Each frame is grabbed and converted from BGR to RGB format for the recognition library.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">05</div>
+        <div class="step-card">
+          <h3>Detect Face Locations</h3>
+          <p>The HOG-based face detector finds the bounding boxes of all faces in the frame.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">06</div>
+        <div class="step-card">
+          <h3>Encode Detected Faces</h3>
+          <p>Every detected face is encoded into a 128-D vector for comparison.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">07</div>
+        <div class="step-card">
+          <h3>Compare &amp; Match</h3>
+          <p>The live encodings are compared to the known encodings to find the best match.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">08</div>
+        <div class="step-card">
+          <h3>Draw Annotations</h3>
+          <p>A green rectangle and a label with the person's name and age are drawn on the frame.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-badge">09</div>
+        <div class="step-card">
+          <h3>Display &amp; Loop</h3>
+          <p>The annotated frame is shown via <code>cv2.imshow()</code>. Press <kbd>Q</kbd> to quit cleanly.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="tech" class="section-light">
+    <div class="section-label">Technology</div>
+    <h2 class="section-title">Tech Stack</h2>
+    <p class="section-sub">Built on battle-tested open-source libraries for computer vision.</p>
+    <div class="tech-grid">
+
+      <div class="tech-card">
+        <div class="tech-logo python">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.898S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.402 3.35-3.402h5.766s3.24.052 3.24-3.13V3.13S18.28 0 11.914 0zM8.708 1.81a1.047 1.047 0 1 1 0 2.094 1.047 1.047 0 0 1 0-2.094z"
+              fill="#3776AB" />
+            <path
+              d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.123S24 18.211 24 12.031c0-6.18-3.403-5.96-3.403-5.96h-2.03v2.867s.109 3.402-3.35 3.402H9.451s-3.24-.052-3.24 3.13V20.87S5.72 24 12.086 24zm3.206-1.81a1.047 1.047 0 1 1 0-2.094 1.047 1.047 0 0 1 0 2.094z"
+              fill="#FFD343" />
+          </svg>
+        </div>
+        <h3>Python 3</h3>
+        <p>Core language — clean, readable, and perfect for rapid AI prototyping.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-logo opencv">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="25" r="20" fill="#2F88FF" />
+            <circle cx="25" cy="70" r="20" fill="#FF0000" />
+            <circle cx="75" cy="70" r="20" fill="#00AA00" />
+          </svg>
+        </div>
+        <h3>OpenCV</h3>
+        <p>Handles webcam capture, frame processing, drawing bounding boxes and text overlays.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-logo face-rec">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
+          </svg>
+        </div>
+        <h3>face_recognition</h3>
+        <p>Built on dlib, it generates 128-D facial embeddings and provides simple compare APIs.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-logo dlib">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+        </div>
+        <h3>dlib</h3>
+        <p>Underlying C++ machine learning library powering the deep face encoder under the hood.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-logo numpy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+          </svg>
+        </div>
+        <h3>NumPy</h3>
+        <p>Efficient numerical operations on image arrays and encoding vectors behind the scenes.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-logo os">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+        </div>
+        <h3>OS Module</h3>
+        <p>Dynamically scans the images directory to auto-load all known face files at startup.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Code Snippet -->
+  <section id="code">
+    <div class="section-label">Source</div>
+    <h2 class="section-title">Core Code</h2>
+    <p class="section-sub">The main recognition loop — elegant and compact.</p>
+    <div class="code-window">
+      <div class="code-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span class="filename">code_1.py</span>
+      </div>
+      <pre class="code-block"><code id="code-content"><span class="c"># Load and encode known faces</span>
+<span class="k">for</span> file <span class="k">in</span> os.listdir(<span class="s">"images"</span>):
+    img = face_recognition.load_image_file(<span class="s">f"images/{file}"</span>)
+    encoding = face_recognition.face_encodings(img)[<span class="n">0</span>]
+    known_encodings.append(encoding)
+    known_names.append(os.path.splitext(file)[<span class="n">0</span>])
+
+<span class="c"># Age dictionary</span>
+ages = {<span class="s">"Amrit"</span>: <span class="n">19</span>, <span class="s">"Jay shri"</span>: <span class="n">50</span>, <span class="s">"Arya"</span>: <span class="n">30</span>}
+
+<span class="c"># Main recognition loop</span>
+<span class="k">while</span> <span class="n">True</span>:
+    ret, frame = cap.read()
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+    locations = face_recognition.face_locations(rgb_frame)
+    encodings = face_recognition.face_encodings(rgb_frame, locations)
+
+    <span class="k">for</span> (top, right, bottom, left), face_enc <span class="k">in</span> zip(locations, encodings):
+        matches = face_recognition.compare_faces(known_encodings, face_enc)
+        name = <span class="s">"Unknown"</span>
+        <span class="k">if</span> <span class="n">True</span> <span class="k">in</span> matches:
+            index = matches.index(<span class="n">True</span>)
+            name = known_names[index]
+        age_text = <span class="s">f", Age: {ages.get(name, 'N/A')}"</span>
+
+        cv2.rectangle(frame, (left, top), (right, bottom), (<span class="n">0</span>, <span class="n">255</span>, <span class="n">0</span>), <span class="n">2</span>)
+        cv2.putText(frame, <span class="s">f"{name}{age_text}"</span>, (left, top - <span class="n">10</span>),
+                    cv2.FONT_HERSHEY_SIMPLEX, <span class="n">0.9</span>, (<span class="n">255</span>, <span class="n">255</span>, <span class="n">255</span>), <span class="n">2</span>)
+
+    cv2.imshow(<span class="s">"Face Recognition"</span>, frame)
+    <span class="k">if</span> cv2.waitKey(<span class="n">1</span>) & <span class="n">0xFF</span> == ord(<span class="s">'q'</span>):
+        <span class="k">break</span></code></pre>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section-light">
+    <div class="section-label">Developer</div>
+    <h2 class="section-title">About the Builder</h2>
+    <div class="about-card">
+      <div class="about-avatar">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner">A</div>
+      </div>
+      <div class="about-info">
+        <h3>Amrit</h3>
+        <p class="about-role">AI &amp; Computer Vision Developer</p>
+        <p class="about-desc">
+          Passionate about building intelligent systems that bridge the gap between human perception and machine
+          understanding.
+          This face recognition project explores real-time computer vision using modern deep learning–powered libraries.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <span class="nav-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="10" r="5" fill="#4285f4" />
+            <path d="M4 24 Q14 16 24 24" fill="#34a853" opacity="0.85" />
+          </svg>
+        </span>
+        Face Recognition
+      </span>
+      <p>Built with Python · OpenCV · face_recognition · dlib</p>
+      <p class="footer-year">© 2026 Amrit</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
