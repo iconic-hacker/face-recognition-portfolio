@@ -794,6 +794,110 @@ footer p {
     color: var(--muted);
 }
 
+/* ══════════════════════════════════════════════════════════
+   ── ABOUT — Lorisbukvic Works-style list ──────────────────
+   ══════════════════════════════════════════════════════════ */
+.about-list-section {
+    background: #000;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 6rem 8vw 5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    color: #fff;
+}
+
+.about-list-header {
+    margin-bottom: 3.5rem;
+}
+
+.about-list-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #fff;
+    margin: 0.25rem 0 0.5rem;
+    line-height: 1;
+}
+
+.about-list-role {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ── The list ────────────────────────────────────────────── */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* hover state: dim all, brighten the hovered one */
+.about-list:has(.about-list-item:hover) .about-list-item {
+    opacity: 0.15;
+}
+
+.about-list:has(.about-list-item:hover) .about-list-item:hover {
+    opacity: 1;
+}
+
+.about-list-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: default;
+    transition: opacity 0.3s ease;
+}
+
+.ali-number {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+    min-width: 2rem;
+}
+
+.ali-name {
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #fff;
+    flex: 1;
+    transition: letter-spacing 0.3s ease;
+}
+
+.about-list-item:hover .ali-name {
+    letter-spacing: -0.01em;
+}
+
+.ali-tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 100px;
+    padding: 0.3rem 0.9rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.3s ease;
+}
+
+.about-list-item:hover .ali-tag {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
 /* ── Animations ───────────────────────────────────────────── */
 @keyframes fade-up {
     from {
@@ -834,8 +938,19 @@ footer p {
     }
 
     .step {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+
+    .step-badge {
+        min-width: 44px;
+        height: 44px;
+        font-size: 0.75rem;
+        border-radius: 10px;
+    }
+
+    .step-card {
+        padding: 1rem;
     }
 
 
